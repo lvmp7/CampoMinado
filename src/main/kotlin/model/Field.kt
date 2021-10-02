@@ -14,7 +14,7 @@ data class Field (val line: Int, val column: Int) {
     val closed: Boolean get() = !open
     val secure: Boolean get() = !mined
     val objective: Boolean get() = secure && open || mined && marked
-    val bordererMined: Int = neighbors.filter { it.mined }.size
+    val neighborMinedSize: Int = neighbors.filter { it.mined }.size
     val secureNeighbor:Boolean get() = neighbors.map { it.secure }.reduce { result, secure -> result && secure }
 
     fun addNeighbor(neighbor: Field){
