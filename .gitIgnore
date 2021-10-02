@@ -1,0 +1,9 @@
+### gradle
+.gradle
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+### InteliJ ###
+.idea
+
