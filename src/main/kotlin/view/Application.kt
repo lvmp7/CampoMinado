@@ -12,7 +12,7 @@ fun main() {
 
 class Application: JFrame() {
 
-    private val board = Board(lineSize = 16,columnSize = 30,mineSize = 1)
+    private val board = Board(lineSize = 16,columnSize = 30,mineSize = 89)
     private val boardPanel = BoardPanel(board)
 
     init {

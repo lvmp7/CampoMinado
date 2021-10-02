@@ -1,5 +1,6 @@
 ### gradle
 .gradle
+.gradle/
 gradle-app.setting
 !gradle-wrapper.jar
 .gradletasknamecache
@@ -9,4 +10,6 @@ gradle-app.setting
 
 text.txt
 
+## build
 build
+build/
