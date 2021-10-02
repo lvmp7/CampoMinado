@@ -69,7 +69,7 @@ class Tabuleiro (val lineSize:Int , val columnSize:Int , val mineSize:Int){
     }
 
     private fun verifyWinOrLose(field: Field, eventField: EventField){
-        if (eventField = EventField.EXPLODE){
+        if (eventField == EventField.EXPLODE){
             callbacks.forEach { it(EventBoard.LOSE) }
         }else if (objective()){
             callbacks.forEach { it(EventBoard.WIN) }
