@@ -5,7 +5,7 @@ import kotlin.collections.ArrayList
 
 enum class EventBoard {WIN,LOSE}
 
-class Tabuleiro (val lineSize:Int , val columnSize:Int , val mineSize:Int){
+class Board (val lineSize:Int, val columnSize:Int, val mineSize:Int){
     private val fields = ArrayList<ArrayList<Field>>()
     private val callbacks = ArrayList<(EventBoard) -> Unit>()
 
