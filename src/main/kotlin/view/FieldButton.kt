@@ -11,7 +11,7 @@ import javax.swing.SwingUtilities
 private val DEFAULT_COLOR_BUTTON = Color(184,184,184)
 private val DEFAULT_COLOR_MARKED = Color(8,179,247)
 private val DEFAULT_COLOR_EXPLOSION = Color(189,66,68)
-private val DEFAULT_TXT_COLOR = Color(0,100,0)
+private val DEFAULT_TXT_COLOR_GREEN = Color(0,100,0)
 
 class FieldButton(private val field:Field):JButton() {
     init {
@@ -20,7 +20,7 @@ class FieldButton(private val field:Field):JButton() {
         isOpaque = true
         border = BorderFactory.createBevelBorder(0)
 
-        addMouseListener(MouseClickListener(field,{it.open()},{it.changeMarked()}))
+        addMouseListener( MouseClickListener(field, { it.open() }, { it.changeMarked() }))
 
         field.onEvent(this::applyStyle)
     }
@@ -49,7 +49,7 @@ class FieldButton(private val field:Field):JButton() {
         border = BorderFactory.createLineBorder(Color.GRAY)
 
         foreground = when (field.neighborMinedSize){
-            1 -> DEFAULT_TXT_COLOR
+            1 -> DEFAULT_TXT_COLOR_GREEN
             2 -> Color.BLUE
             3 -> Color.YELLOW
             4,5,6 -> Color.RED

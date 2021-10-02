@@ -17,19 +17,8 @@ class MouseClickListener(
         }
     }
 
-    override fun mouseClicked(p0: MouseEvent?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun mouseReleased(p0: MouseEvent?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun mouseEntered(p0: MouseEvent?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun mouseExited(p0: MouseEvent?) {
-        TODO("Not yet implemented")
-    }
+    override fun mouseClicked(e: MouseEvent?) {}
+    override fun mouseReleased(e: MouseEvent?) {}
+    override fun mouseEntered(e: MouseEvent?) {}
+    override fun mouseExited(e: MouseEvent?) {}
 }

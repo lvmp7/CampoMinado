@@ -4,7 +4,7 @@ enum class EventField {OPEN, MARKED, UNMARKED, EXPLODE, RESTART }
 
 data class Field (val line: Int, val column: Int) {
     private val neighbors = ArrayList<Field>()
-    private val callbacks = ArrayList<(Field, EventField) -> Unit> ()
+    private val callbacks = ArrayList<(Field, EventField) -> Unit>()
 
     var marked = false
     var open = false
@@ -14,8 +14,9 @@ data class Field (val line: Int, val column: Int) {
     val closed: Boolean get() = !open
     val secure: Boolean get() = !mined
     val objective: Boolean get() = secure && open || mined && marked
-    val neighborMinedSize: Int = neighbors.filter { it.mined }.size
-    val secureNeighbor:Boolean get() = neighbors.map { it.secure }.reduce { result, secure -> result && secure }
+    val neighborMinedSize: Int get() = neighbors.filter { it.mined }.size
+    val secureNeighbor:Boolean
+        get() = neighbors.map { it.secure }.reduce { result, secure -> result && secure }
 
     fun addNeighbor(neighbor: Field){
         neighbors.add(neighbor)
@@ -50,9 +51,9 @@ data class Field (val line: Int, val column: Int) {
     }
 
     fun restart(){
-        var marked = false
-        var open = false
-        var mined = false
+        marked = false
+        open = false
+        mined = false
         callbacks.forEach { callback -> callback(this,EventField.RESTART) }
     }
 }

@@ -32,8 +32,8 @@ class Board (val lineSize:Int, val columnSize:Int, val mineSize:Int){
 
     private fun linkNeighbors(field: Field) {
         val (line,column) = field
-        val lines = arrayListOf(line - 1, line, line +1)
-        val columns = arrayListOf(line - 1, line, line +1)
+        val lines = arrayOf(line - 1, line, line +1)
+        val columns = arrayOf(column - 1, column, column +1)
 
         lines.forEach { l ->
             columns.forEach { c ->
@@ -64,12 +64,12 @@ class Board (val lineSize:Int, val columnSize:Int, val mineSize:Int){
 
     private fun objective (): Boolean{
         var playerWin = true
-        forEachField { if(!it.objective) playerWin =false }
+        forEachField { if( !it.objective ) playerWin = false }
         return playerWin
     }
 
-    private fun verifyWinOrLose(field: Field, eventField: EventField){
-        if (eventField == EventField.EXPLODE){
+    private fun verifyWinOrLose(field: Field, event: EventField){
+        if (event == EventField.EXPLODE){
             callbacks.forEach { it(EventBoard.LOSE) }
         }else if (objective()){
             callbacks.forEach { it(EventBoard.WIN) }
@@ -81,7 +81,7 @@ class Board (val lineSize:Int, val columnSize:Int, val mineSize:Int){
     }
 
     fun onEvent(callback: (EventBoard) -> Unit){
-        callbacks.add { callback }
+        callbacks.add ( callback )
     }
 
     fun restart(){
