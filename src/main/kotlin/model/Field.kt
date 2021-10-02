@@ -17,7 +17,7 @@ data class Field (val line: Int, val column: Int) {
     val bordererMined: Int = neighbors.filter { it.mined }.size
     val secureNeighbor:Boolean get() = neighbors.map { it.secure }.reduce { result, secure -> result && secure }
 
-    fun addBorderer(neighbor: Field){
+    fun addNeighbor(neighbor: Field){
         neighbors.add(neighbor)
     }
 
